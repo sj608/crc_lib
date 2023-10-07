@@ -6,4 +6,5 @@
 
 uint8_t* generate_crc_8_arr(uint8_t crc_polynomial);
 
+
 #endif // CRC_8_H
