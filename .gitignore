@@ -1,1 +1,3 @@
 crc_lib/build/*
+.vscode/*
+.DS_Store
