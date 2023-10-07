@@ -18,11 +18,18 @@ void test_crc_8_NeedToImplement(void)
 {
 
     const uint16_t lut_size = 256;
-    uint8_t *crc_arr;
-    crc_arr=generate_crc_8_arr(crc_polynomial);
-    for(uint8_t i = 0; i<lut_size;i++){
-        TEST_ASSERT_EQUAL(*(crc_arr+i), lut_8_crc[i]);
+    crc_polynomial = 0x07;
+    generate_crc_8_arr(crc_polynomial);
+    for(uint16_t i = 0; i<lut_size;i++){
+        TEST_ASSERT_EQUAL(crc_8_lut[i], lut_8_crc[i]);
     }
+}
+
+void test_check_crc(void)
+{
+    uint8_t test_bytes[10]={0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0xF4};
+    TEST_ASSERT_EQUAL(check_crc(test_bytes, 10), 0);
+    TEST_ASSERT_EQUAL(check_crc(test_bytes, 9), 1);
 }
 
 #endif // TEST
