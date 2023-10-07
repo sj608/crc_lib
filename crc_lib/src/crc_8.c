@@ -31,3 +31,13 @@ uint8_t check_crc(uint8_t *buff, uint8_t size)
     }
     return 0;
 }
+
+uint8_t get_crc(uint8_t *buff, uint8_t size){
+    uint8_t crc = 0;
+    for(uint8_t indx = 0; indx<size; indx++)
+    {
+        crc = crc ^ *(buff+indx);
+        crc = crc_8_lut[crc];
+    }
+    return crc;
+}

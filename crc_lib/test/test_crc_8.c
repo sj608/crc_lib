@@ -32,4 +32,11 @@ void test_check_crc(void)
     TEST_ASSERT_EQUAL(check_crc(test_bytes, 9), 1);
 }
 
+void test_get_crc(void)
+{
+    uint8_t test_bytes[10]={0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0xF4};
+    TEST_ASSERT_EQUAL(get_crc(test_bytes, 9), 0xF4);
+}
+
+
 #endif // TEST
